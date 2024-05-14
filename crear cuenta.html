@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta</title>
+    <link rel="stylesheet" type="text/css" href="CSS/csscrearcuenta.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <a href="index.html">
+            <img src="IMAGEN/logoEmpresa1.png" alt="Logo de la empresa">
+          </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="nosotros.html">Acerca de nosotros</a></li>
+                <li><a href="#contacto">Contáctanos</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="crear cuenta.html">Crear Cuenta</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="#login">Menú</a></li>
+            </ul>
+        </nav>
+        
+    </header><hr/>
+    
+    <h2>Crea tu cuenta con nosotros</h2>
+    <p>En unos simples pasos...</p>
+    
+    
+    <div class="container">
+        <div class="image-container">
+            <img src="IMAGEN/escudo.jpg" alt="Imagen">
+        </div>
+    <div class="form-container">
+    <form action="procesar_cuenta.php" method="post">
+        <!-- Información personal -->
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br>
+        <label for="apellido">Apellido:</label><br>
+        <input type="text" id="apellido" name="apellido" required><br>
+        <label for="genero">Género:</label><br>
+        <select id="genero" name="genero">
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+            <option value="otro">Otro</option>
+        </select><br><br>
+        
+        <!-- Información de la cuenta -->
+        <label for="correo">Correo electrónico:</label><br>
+        <input type="email" id="correo" name="correo" required><br>
+        <label for="contrasena">Contraseña:</label><br>
+        <input type="password" id="contrasena" name="contrasena" required><br><br>
+        
+        <!-- Botones -->
+        <button type="button" onclick="cancelar()">Cancelar</button>
+        <button type="submit">Guardar</button>
+    </form>
+</div>
+</div>
+    <script>
+        function cancelar() {
+            // Redirigir a la página de inicio o a donde quieras
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
