@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -14,12 +15,14 @@
       </div>
       <nav>
           <ul>
-              <li><a href="nosotros.html">Acerca de nosotros</a></li>
+              <li><a href="nosotros.php">Acerca de nosotros</a></li>
               <li><a href="#contacto">Contáctanos</a></li>
               <li><a href="#catalogo">Catálogo</a></li>
-              <li><a href="crear cuenta.html">Crear Cuenta</a></li>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="#login">Menú</a></li>
+              <li><a href="crear cuenta.php">Crear Cuenta</a></li>
+              <li><a href="login.php">Login</a></li>
+              
+
+              
           </ul>
       </nav>
       
