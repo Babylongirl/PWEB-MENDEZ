@@ -7,60 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <link rel="stylesheet" type="text/css" href="CSS/CSS.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #ffffff;
-            padding: 10px 20px;
-            z-index: 9999;
-        }
-
-        main {
-            margin-left: 200px; /* Ajustar según el ancho de los botones laterales */
-            padding-top: 60px; /* Ajustar según el alto del header */
-        }
-
-        .botones-laterales {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0; /* Gris claro */
-            padding: 20px;
-            z-index: 9998; /* Z-index menor para estar detrás del header */
-        }
-
-        .botones-laterales button {
-            width: 150px;
-            height: 50px;
-            margin-bottom: 10px;
-            border: none;
-            background-color: #fff;
-            color: #333; /* Gris oscuro */
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .botones-laterales button:hover {
-            background-color: #ccc; /* Gris más claro al pasar el ratón */
-        }
-    </style>
-</head>
+  </head>
 <body>
     <header>
         <div class="logo">
@@ -70,10 +17,11 @@
         </div>
         <nav>
             <ul>
-                <li><a href="nosotros.php">Acerca de nosotros</a></li>
+                <li><a href="nosotrosadmin.php">Acerca de nosotros</a></li>
                 <li><a href="#contacto">Contáctanos</a></li>
-                <li><a href="#catalogo">Catálogo</a></li>
-                <li><a href="menucliente.html">Menu</a></li>
+                <li><a href="catalogoadmin.php">Catálogo</a></li>
+                <li><a href="menuadmin.php">Menu</a></li>
+                
             </ul>
         </nav>
     </header>
@@ -110,14 +58,6 @@
               </button>
           </div>
       </div>
-      <!-- Botones laterales -->
-      <div class="botones-laterales">
-          <button class="btn btn-outline-secondary">Boton Corazón</button>
-          <button class="btn btn-outline-secondary">Boton Carrito</button>
-          <button class="btn btn-outline-secondary">Boton Configuración</button>
-          <button class="btn btn-outline-secondary">Boton Reportes</button>
-          <button class="btn btn-outline-secondary">Cerrar Sesión</button>
-      </div>
-    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

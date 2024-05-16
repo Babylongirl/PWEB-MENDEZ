@@ -24,15 +24,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verificar si la contraseña ingresada coincide con la contraseña almacenada en la base de datos
         if ($usuario['ContrasenaUsuario'] === $contrasena_encriptada) {
-            // La contraseña es correcta, iniciar sesión y redirigir al usuario a la página de inicio
+            // La contraseña es correcta, iniciar sesión y redirigir al usuario a la página correspondiente según su rol
             session_start();
             $_SESSION['usuario_id'] = $usuario['IdUsuario'];
             $_SESSION['usuario_nombre'] = $usuario['NombreUsuario'];
             // Puedes agregar más datos de usuario a la sesión si lo deseas
 
-            // Redirigir al usuario a la página de inicio
-            header("Location: index.php");
-            exit();
+            // Verificar si el array $usuario tiene la clave "IdRol"
+            if (isset($usuario['IdRol'])) {
+                // Redirigir al usuario según su rol
+                if ($usuario['IdRol'] == 1) {
+                    // Si el rol es 1, redirigir al usuario a la página de clientes
+                    header("Location: indexcliente.php");
+                } elseif ($usuario['IdRol'] == 2) {
+                    // Si el rol es 2, redirigir al usuario a la página de administradores
+                    header("Location: indexadmin.php");
+                }
+                exit();
+            } else {
+                // Si el rol no está definido en el array $usuario, redirigir a la página de inicio de sesión con un mensaje de error
+                header("Location: login.html?error=rol");
+                exit();
+            }
         } else {
             // La contraseña es incorrecta, mostrar un mensaje de error
             header("Location: login.html?error=contrasena");

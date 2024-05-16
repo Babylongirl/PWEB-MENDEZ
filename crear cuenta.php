@@ -17,7 +17,7 @@
             <ul>
                 <li><a href="nosotros.php">Acerca de nosotros</a></li>
                 <li><a href="#contacto">Contáctanos</a></li>
-                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="catalogo.php">Catálogo</a></li>
                 <?php
                 session_start();
                 if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['rol'])) {

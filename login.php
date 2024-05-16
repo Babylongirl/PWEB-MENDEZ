@@ -17,7 +17,7 @@
             <ul>
                 <li><a href="nosotros.php">Acerca de nosotros</a></li>
                 <li><a href="#contacto">Contáctanos</a></li>
-                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="catalogo.php">Catálogo</a></li>
                 <li><a href="crear cuenta.php">Crear Cuenta</a></li>
                 <li><a href="login.php">Login</a></li>
                 

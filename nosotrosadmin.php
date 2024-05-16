@@ -15,11 +15,10 @@
       </div>
       <nav>
           <ul>
-              <li><a href="nosotros.php">Acerca de nosotros</a></li>
+              <li><a href="nosotrosadmin.php">Acerca de nosotros</a></li>
               <li><a href="#contacto">Contáctanos</a></li>
-              <li><a href="catalogo.php">Catálogo</a></li>
-              <li><a href="crear cuenta.php">Crear Cuenta</a></li>
-              <li><a href="login.php">Login</a></li>
+              <li><a href="catalogoadmin.php">Catálogo</a></li>
+              <li><a href="menuadmin.php">Menu</a></li>
               
 
               
