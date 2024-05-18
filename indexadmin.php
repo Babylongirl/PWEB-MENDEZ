@@ -17,10 +17,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="nosotrosadmin.php">Acerca de nosotros</a></li>
-                <li><a href="#contacto">Contáctanos</a></li>
-                <li><a href="catalogoadmin.php">Catálogo</a></li>
-                <li><a href="menuadmin.php">Menu</a></li>
+            <li><a href="nosotrosadmin.php">Acerca de nosotros</a></li>
+              <li><a href="contactanosadmin.php">Contáctanos</a></li>
+              <li><a href="catalogoadmin.php">Catálogo</a></li>
+              <li><a href="menuadmin.php">Menu</a></li>
                 
             </ul>
         </nav>

@@ -156,11 +156,14 @@
                 Total del Carrito: $<?php echo $totalCarrito; ?>
             </div>
             <div style="text-align: center; margin-top: 20px;">
-                <button class="btn btn-success">Pagar</button>
+                <!-- Botón de pagar que redirige a pagar.php -->
+                <form action="pagar.php" method="post" style="display: inline;">
+                    <button type="submit" class="btn btn-success">Pagar</button>
+                </form>
+                <!-- Botón de volver que redirige al menú del cliente -->
                 <a href="menucliente.php" class="btn btn-orange">Volver</a>
             </div>
         </div>
     </main>
 </body>
 </html>
-

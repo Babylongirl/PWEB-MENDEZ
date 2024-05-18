@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2024 at 12:50 PM
+-- Generation Time: May 18, 2024 at 11:54 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,8 +43,8 @@ INSERT INTO `carrito` (`IdUsuario`, `IdProducto`, `Cantidad`, `FechaCarrito`, `P
 (2, 1, 2, '2024-05-16', 500.000),
 (3, 1, 1, '2024-05-16', 500.000),
 (3, 2, 1, '2024-05-16', 400.000),
-(5, 1, 10, '2024-05-16', 500.000),
-(5, 2, 1, '2024-05-16', 400.000);
+(5, 1, 11, '2024-05-16', 500.000),
+(5, 2, 3, '2024-05-16', 400.000);
 
 -- --------------------------------------------------------
 
@@ -77,6 +77,19 @@ CREATE TABLE `ciudad` (
   `NombreCiudad` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `ciudad`
+--
+
+INSERT INTO `ciudad` (`IdCiudad`, `NombreCiudad`) VALUES
+(1, 'San Pedro Garza García'),
+(2, 'Santa Catarina'),
+(3, 'Guadalupe'),
+(4, 'San Nicolás de los Garza'),
+(5, 'Apodaca'),
+(6, 'Cumbres'),
+(7, 'Valle Oriente');
+
 -- --------------------------------------------------------
 
 --
@@ -92,6 +105,13 @@ CREATE TABLE `direccion` (
   `IdUsuario` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `direccion`
+--
+
+INSERT INTO `direccion` (`IdDireccion`, `Calle`, `Colonia`, `IdCiudad`, `CodigoPostal`, `IdUsuario`) VALUES
+(0, 'Fundidora', 'Avenida', 3, '65000', 5);
+
 -- --------------------------------------------------------
 
 --
@@ -102,6 +122,14 @@ CREATE TABLE `estadoventa` (
   `IdEstadoVenta` int(10) NOT NULL,
   `DescripcionEstadoVenta` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `estadoventa`
+--
+
+INSERT INTO `estadoventa` (`IdEstadoVenta`, `DescripcionEstadoVenta`) VALUES
+(1, 'Pagado'),
+(2, 'Enviado');
 
 -- --------------------------------------------------------
 
@@ -114,6 +142,15 @@ CREATE TABLE `metodoenvio` (
   `NombreEnvio` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `metodoenvio`
+--
+
+INSERT INTO `metodoenvio` (`IdMetodoEnvio`, `NombreEnvio`) VALUES
+(1, 'FEDEX'),
+(2, 'ESTAFETA'),
+(3, 'DHL');
+
 -- --------------------------------------------------------
 
 --
@@ -125,6 +162,14 @@ CREATE TABLE `metodopago` (
   `NombrePago` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `metodopago`
+--
+
+INSERT INTO `metodopago` (`IdMetodoPago`, `NombrePago`) VALUES
+(1, 'Mastercard'),
+(2, 'VISA');
+
 -- --------------------------------------------------------
 
 --
@@ -134,7 +179,7 @@ CREATE TABLE `metodopago` (
 CREATE TABLE `producto` (
   `IdProducto` int(10) NOT NULL,
   `NombreProducto` varchar(30) NOT NULL,
-  `DescripcionProducto` varchar(50) DEFAULT NULL,
+  `DescripcionProducto` varchar(200) NOT NULL,
   `PrecioProducto` decimal(10,3) NOT NULL,
   `ImagenProducto` blob NOT NULL,
   `IdCategoria` int(10) NOT NULL
@@ -214,8 +259,17 @@ CREATE TABLE `usuariometodopago` (
   `Proveedor` varchar(30) NOT NULL,
   `NumeroCuenta` char(16) NOT NULL,
   `FechaExpiracion` char(5) NOT NULL,
-  `EsPredeterminada` bit(1) NOT NULL
+  `EsPredeterminada` tinyint(1) NOT NULL,
+  `Activo` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `usuariometodopago`
+--
+
+INSERT INTO `usuariometodopago` (`IdUsuarioMetodoPago`, `IdUsuario`, `IdMetodoPago`, `Proveedor`, `NumeroCuenta`, `FechaExpiracion`, `EsPredeterminada`, `Activo`) VALUES
+(10, 5, 1, 'Banamex', '5555555555555555', '05/25', 0, 1),
+(11, 5, 2, 'BANREGIO', '3333333333333333', '05/25', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -234,6 +288,13 @@ CREATE TABLE `venta` (
   `IdMetodoEnvio` int(10) NOT NULL,
   `IVA` decimal(10,3) NOT NULL DEFAULT 0.000
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `venta`
+--
+
+INSERT INTO `venta` (`IdVenta`, `FechaVenta`, `VentaTotal`, `IdEstadoVenta`, `IdUsuario`, `IdMetodoPago`, `IdDireccion`, `IdMetodoEnvio`, `IVA`) VALUES
+(1, '2024-05-18', 9999999.000, 2, 5, 1, 0, 1, 0.000);
 
 -- --------------------------------------------------------
 
@@ -357,7 +418,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `usuariometodopago`
 --
 ALTER TABLE `usuariometodopago`
-  MODIFY `IdUsuarioMetodoPago` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdUsuarioMetodoPago` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables

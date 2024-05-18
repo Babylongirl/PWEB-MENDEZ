@@ -14,12 +14,11 @@
       </div>
       <nav>
           <ul>
-              <li><a href="nosotros.html">Acerca de nosotros</a></li>
-              <li><a href="contactanos.html">Contáctanos</a></li>
-              <li><a href="catalogo.html">Catálogo</a></li>
-              <li><a href="crear cuenta.html">Crear Cuenta</a></li>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="#login">Menú</a></li>
+          <li><a href="nosotrosadmin.php">Acerca de nosotros</a></li>
+              <li><a href="contactanosadmin.php">Contáctanos</a></li>
+              <li><a href="catalogoadmin.php">Catálogo</a></li>
+              <li><a href="menuadmin.php">Menu</a></li>
+              
           </ul>
       </nav>
       

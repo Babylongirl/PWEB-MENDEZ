@@ -16,7 +16,7 @@
       <nav>
           <ul>
               <li><a href="nosotroscliente.php">Acerca de nosotros</a></li>
-              <li><a href="#contacto">Contáctanos</a></li>
+              <li><a href="contactanoscliente.php">Contáctanos</a></li>
               <li><a href="catalogocliente.php">Catálogo</a></li>
               <li><a href="menucliente.php">Menu</a></li>
               
