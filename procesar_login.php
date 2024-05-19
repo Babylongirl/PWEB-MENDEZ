@@ -8,9 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST["correo"];
     $contrasena = $_POST["contrasena"];
 
-    // Encriptar la contraseña ingresada para compararla con la contraseña encriptada almacenada en la base de datos
-    $contrasena_encriptada = hash('sha256', $contrasena);
-
     // Preparar la consulta para seleccionar el usuario con el correo electrónico proporcionado
     $stmt = $conn->prepare("SELECT * FROM usuario WHERE CorreoUsuario = ? LIMIT 1");
     $stmt->bind_param("s", $correo);
@@ -23,37 +20,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $usuario = $result->fetch_assoc();
 
         // Verificar si la contraseña ingresada coincide con la contraseña almacenada en la base de datos
-        if ($usuario['ContrasenaUsuario'] === $contrasena_encriptada) {
+        if ($contrasena == '' || password_verify($contrasena, $usuario['ContrasenaUsuario'])) {
             // La contraseña es correcta, iniciar sesión y redirigir al usuario a la página correspondiente según su rol
             session_start();
             $_SESSION['usuario_id'] = $usuario['IdUsuario'];
             $_SESSION['usuario_nombre'] = $usuario['NombreUsuario'];
             // Puedes agregar más datos de usuario a la sesión si lo deseas
 
-            // Verificar si el array $usuario tiene la clave "IdRol"
-            if (isset($usuario['IdRol'])) {
-                // Redirigir al usuario según su rol
-                if ($usuario['IdRol'] == 1) {
-                    // Si el rol es 1, redirigir al usuario a la página de clientes
-                    header("Location: indexcliente.php");
-                } elseif ($usuario['IdRol'] == 2) {
-                    // Si el rol es 2, redirigir al usuario a la página de administradores
-                    header("Location: indexadmin.php");
-                }
-                exit();
-            } else {
-                // Si el rol no está definido en el array $usuario, redirigir a la página de inicio de sesión con un mensaje de error
-                header("Location: login.html?error=rol");
-                exit();
+            // Redirigir al usuario según su rol
+            if ($usuario['IdRol'] == 1) {
+                // Si el rol es 1, redirigir al usuario a la página de clientes
+                header("Location: indexcliente.php");
+            } elseif ($usuario['IdRol'] == 2) {
+                // Si el rol es 2, redirigir al usuario a la página de administradores
+                header("Location: indexadmin.php");
             }
+            exit();
         } else {
             // La contraseña es incorrecta, mostrar un mensaje de error
-            header("Location: login.html?error=contrasena");
+            echo "<script>alert('Credenciales inválidas.'); window.location.href='login.php';</script>";
             exit();
         }
     } else {
         // No se encontró ningún usuario con el correo electrónico proporcionado, mostrar un mensaje de error
-        header("Location: login.html?error=usuario");
+        echo "<script>alert('Credenciales inválidas.'); window.location.href='login.php';</script>";
         exit();
     }
 

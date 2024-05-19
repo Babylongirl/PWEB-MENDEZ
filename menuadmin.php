@@ -169,13 +169,15 @@ if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario_nombre'])) {
     <footer>
         <!-- Botones laterales -->
         <div class="botones-laterales">
-            <button class="btn btn-outline-secondary" onclick="alert('Fuera de servicio por el momento')">
-                <img src="./IMAGEN/corazon.jpg" alt="Corazón" style="width: 70px; height: 70px; margin-right: 0px;">
-            </button>
-            <button class="btn btn-outline-secondary">
+        <button class="btn btn-outline-secondary" id="productos-crud">
+    <a href="productoscrud.php">
+        <img src="./IMAGEN/corazon.jpg" alt="Corazón" style="width: 70px; height: 70px; margin-right: 0px;">
+    </a>
+</button>
+            <button class="btn btn-outline-secondary" id="reportes">
                 <img src="./IMAGEN/reportes.jpg" alt="Reportes" style="width: 70px; height: 70px; margin-right: 0px;"></button>
-            <button class="btn btn-outline-secondary" id="lista-clientes">
-                <img src="./IMAGEN/fotousuario.jpg" alt="Clientes" style="width: 70px; height: 70px; margin-right: 0px;"></button>
+            <button class="btn btn-outline-secondary" id="lista-empleados">
+                <img src="./IMAGEN/fotousuario.jpg" alt="Empleados" style="width: 70px; height: 70px; margin-right: 0px;"></button>
             <button class="btn btn-outline-secondary" id="cerrar-sesion">
                 <img src="./IMAGEN/sesion.jpg" alt="Cerrar" style="width: 70px; height: 70px; margin-right: 0px;"></button>
         </div>
@@ -201,6 +203,18 @@ if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario_nombre'])) {
         document.getElementById("cerrar-sesion").addEventListener("click", function() {
             // Redireccionar al usuario a cerrar_sesion.php
             window.location.href = "cerrar_sesion.php";
+        });
+
+        // Agregar evento clic al botón "Reportes"
+        document.getElementById("reportes").addEventListener("click", function() {
+            // Redireccionar al usuario a reportesadmin.php
+            window.location.href = "reportesadmin.php";
+        });
+
+        // Agregar evento clic al botón "Lista de Empleados"
+        document.getElementById("lista-empleados").addEventListener("click", function() {
+            // Redireccionar al usuario a empleadoscrud.php
+            window.location.href = "empleadoscrud.php";
         });
     </script>
 
