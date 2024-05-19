@@ -1,10 +1,17 @@
 <?php
 include 'conexion.php';
+session_start(); // Iniciamos la sesión para poder acceder a $_SESSION
 
-$precioTotal = $_POST['precioTotal'];
-$idDireccion = $_POST['direccion'];
-$idEnvio = $_POST['envio'];
-$idTarjeta = $_POST['tarjeta'];
+$precioTotal = $_POST['precioTotal'] ?? 0; // Establecemos un valor predeterminado en caso de que no se reciba 'precioTotal'
+$idDireccion = $_POST['direccion'] ?? 0; // Establecemos un valor predeterminado en caso de que no se reciba 'direccion'
+$idEnvio = $_POST['envio'] ?? 0; // Establecemos un valor predeterminado en caso de que no se reciba 'envio'
+$idTarjeta = $_POST['tarjeta'] ?? 0; // Establecemos un valor predeterminado en caso de que no se reciba 'tarjeta'
+
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
 $userId = $_SESSION['usuario_id'];
 
 // Insertar una nueva venta en la tabla de ventas

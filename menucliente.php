@@ -160,6 +160,7 @@ if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario_nombre'])) {
         .producto button {
             margin-top: 10px;
         }
+
     </style>
 </head>
 <body>
@@ -179,16 +180,21 @@ if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario_nombre'])) {
         </nav>
     </header>
     <main>
-        <!-- Contenido principal de la página -->
     </main>
     <footer>
         <!-- Botones laterales -->
         <div class="botones-laterales">
-            <button class="btn btn-outline-secondary" onclick="alert('Fuera de servicio por el momento')">Botón Corazón</button>
-            <a href="crudcarrito.php" class="btn btn-outline-secondary">Carrito</a>
-            <button class="btn btn-outline-secondary" onclick="mostrarMenuEmergente()">Configuración</button>
-            <button class="btn btn-outline-secondary" id="boton-reportes">Botón Reportes</button>
-            <button class="btn btn-outline-secondary" id="cerrar-sesion">Cerrar Sesión</button>
+            <button class="btn btn-outline-secondary" onclick="alert('Fuera de servicio por el momento')">
+                <img src="./IMAGEN/corazon.jpg" alt="Corazón" style="width: 70px; height: 70px; margin-right: 0px;">
+            </button>
+            <a href="crudcarrito.php" class="btn btn-outline-secondary">
+                <img src="./IMAGEN/carrito.jpg" alt="Carrito" style="width: 70px; height: 70px; margin-right: 0px;"></a>
+            <button class="btn btn-outline-secondary" onclick="mostrarMenuEmergente()">
+            <img src="./IMAGEN/configuracion.jpg" alt="Configuración" style="width: 70px; height: 70px; margin-right: 0px;"></button>
+            <button class="btn btn-outline-secondary" id="boton-reportes">
+                <img src="./IMAGEN/reportes.jpg" alt="Reportes" style="width: 70px; height: 70px; margin-right: 0px;"></button>
+            <button class="btn btn-outline-secondary" id="cerrar-sesion">
+                <img src="./IMAGEN/sesion.jpg" alt="Cerrar" style="width: 70px; height: 70px; margin-right: 0px;"></button>
         </div>
     </footer>
     <!-- Panel derecho -->

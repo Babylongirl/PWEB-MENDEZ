@@ -1,7 +1,6 @@
 <?php
 include 'conexion.php';
-
-session_start(); // Agregamos session_start() al inicio del archivo
+session_start();
 
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.php");
@@ -10,7 +9,6 @@ if (!isset($_SESSION['usuario_id'])) {
 
 $userId = $_SESSION['usuario_id'];
 
-// Consulta para obtener los productos en el carrito del usuario actual
 $sql_productos = "SELECT c.IdProducto, p.NombreProducto, p.ImagenProducto, c.Cantidad, c.PrecioProducto, p.PrecioProducto AS PrecioUnitario
         FROM carrito c
         INNER JOIN producto p ON c.IdProducto = p.IdProducto
@@ -20,7 +18,6 @@ $stmt_productos->bind_param("i", $userId);
 $stmt_productos->execute();
 $result_productos = $stmt_productos->get_result();
 
-// Calcular el total del carrito y los precios individuales
 $totalCarrito = 0;
 $productos = [];
 while ($row = $result_productos->fetch_assoc()) {
@@ -31,23 +28,21 @@ while ($row = $result_productos->fetch_assoc()) {
 }
 $stmt_productos->close();
 
-// Consulta para obtener las tarjetas asociadas al usuario
 $stmt_tarjetas = $conn->prepare("SELECT IdUsuarioMetodoPago, SUBSTRING(NumeroCuenta, -4) AS UltimosCuatro FROM usuariometodopago WHERE IdUsuario = ?");
 $stmt_tarjetas->bind_param("i", $userId);
 $stmt_tarjetas->execute();
 $result_tarjetas = $stmt_tarjetas->get_result();
 
-// Consulta para obtener las direcciones asociadas al usuario
 $stmt_direcciones = $conn->prepare("SELECT IdDireccion, CONCAT(Calle, ', ', Colonia, ', CP ', CodigoPostal) AS DireccionCompleta FROM direccion WHERE IdUsuario = ?");
 $stmt_direcciones->bind_param("i", $userId);
 $stmt_direcciones->execute();
 $result_direcciones = $stmt_direcciones->get_result();
 
-// Consulta para obtener los métodos de envío disponibles
 $stmt_envios = $conn->prepare("SELECT IdMetodoEnvio, NombreEnvio FROM metodoenvio");
 $stmt_envios->execute();
 $result_envios = $stmt_envios->get_result();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">

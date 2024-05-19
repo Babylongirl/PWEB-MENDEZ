@@ -9,7 +9,6 @@ if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario_nombre'])) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,7 +16,6 @@ if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario_nombre'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Méndez-Refractarios y Aislamientos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <link rel="stylesheet" type="text/css" href="CSS/CSS.css">
     <style>
         body {
@@ -55,21 +53,25 @@ if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario_nombre'])) {
             z-index: 9998; /* Z-index menor para estar detrás del header */
         }
 
-        .botones-laterales button {
+        .btn-comun {
             width: 150px;
             height: 50px;
-            margin-bottom: 10px;
+            margin-bottom: 20px; /* Espacio entre botones */
             border: none;
-            background-color: #fff;
-            color: #333; /* Gris oscuro */
+            background-color: #007bff; /* Azul */
+            color: #fff; /* Texto blanco */
             font-size: 16px;
-            border-radius: 5px;
+            border-radius: 25px; /* Mayor radio para un aspecto más redondeado */
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .botones-laterales button:hover {
-            background-color: #ccc; /* Gris más claro al pasar el ratón */
+        .btn-comun:hover {
+            background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
         }
 
         /* Estilos para el panel derecho */
@@ -142,6 +144,7 @@ if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario_nombre'])) {
         .producto button {
             margin-top: 10px;
         }
+
     </style>
 </head>
 <body>
@@ -153,10 +156,10 @@ if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario_nombre'])) {
         </div>
         <nav>
             <ul>
-            <li><a href="nosotrosadmin.php">Acerca de nosotros</a></li>
-              <li><a href="contactanosadmin.php">Contáctanos</a></li>
-              <li><a href="catalogoadmin.php">Catálogo</a></li>
-              <li><a href="menuadmin.php">Menu</a></li>
+                <li><a href="nosotrosadmin.php">Acerca de nosotros</a></li>
+                <li><a href="contactanosadmin.php">Contáctanos</a></li>
+                <li><a href="catalogoadmin.php">Catálogo</a></li>
+                <li><a href="menuadmin.php">Menú</a></li>
             </ul>
         </nav>
     </header>
@@ -164,12 +167,18 @@ if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario_nombre'])) {
         <!-- Contenido principal de la página -->
     </main>
     <footer>
-      <!-- Botones laterales -->
-      <div class="botones-laterales">
-          <button class="btn btn-outline-secondary" id="boton-corazon">Boton Corazón</button>
-          <button class="btn btn-outline-secondary">Boton Reportes</button>
-          <button class="btn btn-outline-secondary" id="cerrar-sesion">Cerrar Sesión</button>
-      </div>
+        <!-- Botones laterales -->
+        <div class="botones-laterales">
+            <button class="btn btn-outline-secondary" onclick="alert('Fuera de servicio por el momento')">
+                <img src="./IMAGEN/corazon.jpg" alt="Corazón" style="width: 70px; height: 70px; margin-right: 0px;">
+            </button>
+            <button class="btn btn-outline-secondary">
+                <img src="./IMAGEN/reportes.jpg" alt="Reportes" style="width: 70px; height: 70px; margin-right: 0px;"></button>
+            <button class="btn btn-outline-secondary" id="lista-clientes">
+                <img src="./IMAGEN/fotousuario.jpg" alt="Clientes" style="width: 70px; height: 70px; margin-right: 0px;"></button>
+            <button class="btn btn-outline-secondary" id="cerrar-sesion">
+                <img src="./IMAGEN/sesion.jpg" alt="Cerrar" style="width: 70px; height: 70px; margin-right: 0px;"></button>
+        </div>
     </footer>
     <!-- Panel derecho -->
     <div class="panel-derecho">
@@ -188,12 +197,12 @@ if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario_nombre'])) {
     </div>
 
     <script>
-    // Agregar evento clic al botón "Cerrar Sesión"
-    document.getElementById("cerrar-sesion").addEventListener("click", function() {
-        // Redireccionar al usuario a cerrar_sesion.php
-        window.location.href = "cerrar_sesion.php";
-    });
-</script>
+        // Agregar evento clic al botón "Cerrar Sesión"
+        document.getElementById("cerrar-sesion").addEventListener("click", function() {
+            // Redireccionar al usuario a cerrar_sesion.php
+            window.location.href = "cerrar_sesion.php";
+        });
+    </script>
 
 </body>
 </html>
