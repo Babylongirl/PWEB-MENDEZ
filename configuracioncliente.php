@@ -60,10 +60,97 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <title>Configuración de Cliente</title>
-    <link rel="stylesheet" href="CSS/estilos.css"> <!-- Ajusta la ruta y nombre del archivo CSS según tu estructura de directorios -->
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    margin: -20px -20px 20px -20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+}
+
+a.btn.volver {
+    background-color: #6c757d;
+}
+
+a.btn.volver:hover {
+    background-color: #5a6268;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+}
+
+        </style>
 </head>
 <body>
-    <!-- Aquí va el contenido HTML de tu página de configuración -->
     <div class="container">
         <h1>Configuración de Cliente</h1>
         <?php if (isset($error_message)) : ?>
@@ -76,6 +163,7 @@ $conn->close();
             <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" required><br><br>
             <input type="submit" value="Cambiar Contraseña">
         </form>
+        <a href="menucliente.php" class="btn volver">Volver</a>
     </div>
 </body>
 </html>

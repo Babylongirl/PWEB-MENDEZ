@@ -5,27 +5,92 @@
       <meta charset="utf-8"/>
       <title>Acerca de nostros </title>
       <link rel="stylesheet" type="text/css" href="CSS/cssnosotros.css"/>
-  </head>
-  <body>
-    <header>
-      <div class="logo">
-        <a href="index.html">
-          <img src="IMAGEN/logoEmpresa1.png" alt="Logo de la empresa">
-        </a>
-      </div>
-      <nav>
-          <ul>
-              <li><a href="nosotroscliente.php">Acerca de nosotros</a></li>
-              <li><a href="contactanoscliente.php">Contáctanos</a></li>
-              <li><a href="catalogocliente.php">Catálogo</a></li>
-              <li><a href="menucliente.php">Menu</a></li>
-              
+      <style>
+        /* Estilos para el menú de hamburguesa */
+        .menu-hamburguesa {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 1000;
+        }
 
-              
-          </ul>
-      </nav>
-      
-  </header><hr/>
+        .menu-hamburguesa div {
+            width: 25px;
+            height: 3px;
+            background-color: black;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        /* Estilos para el menú desplegable */
+        .menu-content {
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .menu-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .menu-content a:hover {
+            background-color: #ddd;
+        }
+
+        /* Media query para dispositivos móviles */
+        @media (max-width: 768px) {
+            .menu-hamburguesa {
+                display: block;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .menu-content {
+                top: 90px;
+            }
+        }
+    </style>
+    </head>
+  <body>
+  <header>
+    <div class="logo">
+        <a href="indexcliente.php">
+            <img src="IMAGEN/logoEmpresa1.png" alt="Logo de la empresa">
+        </a>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href="nosotroscliente.php">Acerca de nosotros</a></li>
+            <li><a href="contactanoscliente.php">Contáctanos</a></li>
+            <li><a href="catalogocliente.php">Catálogo</a></li>
+            <li><a href="menucliente.php">Menu</a></li>
+        </ul>
+    </nav>
+    <!-- Menú de hamburguesa -->
+    <div class="menu-hamburguesa" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <!-- Contenido del menú desplegable -->
+    <div class="menu-content" id="menuContent">
+        <a href="nosotroscliente.php">Acerca de nosotros</a>
+        <a href="contactanoscliente.php">Contáctanos</a>
+        <a href="catalogocliente.php">Catálogo</a>
+        <a href="menucliente.php">Menu</a>
+    </div>
+</header><hr/>
   <main>
     <!-- Contenido principal de la página -->
     <div class="container">
@@ -82,5 +147,15 @@
           </div>
       </div>
 </main>
+<script>
+    function toggleMenu() {
+        var menuContent = document.getElementById("menuContent");
+        if (menuContent.style.display === "block") {
+            menuContent.style.display = "none";
+        } else {
+            menuContent.style.display = "block";
+        }
+    }
+</script>
   </body>
 </html>

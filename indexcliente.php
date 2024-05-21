@@ -5,13 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Méndez-Refractarios y Aislamientos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <link rel="stylesheet" type="text/css" href="CSS/CSS.css">
-  </head>
+    <style>
+        /* Estilos adicionales para el menú de hamburguesa */
+        .menu-hamburguesa {
+            display: none;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .menu-hamburguesa div {
+            width: 25px;
+            height: 3px;
+            background-color: black;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        .menu-content {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .menu-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .menu-content a:hover {
+            background-color: #ddd;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .menu-hamburguesa {
+                display: flex;
+            }
+        }
+    </style>
+</head>
 <body>
     <header>
         <div class="logo">
-          <a href="index.html">
+          <a href="indexcliente.php">
             <img src="IMAGEN/logoEmpresa1.png" alt="Logo de la empresa">
           </a>
         </div>
@@ -21,9 +70,21 @@
                 <li><a href="contactanoscliente.php">Contáctanos</a></li>
                 <li><a href="catalogocliente.php">Catálogo</a></li>
                 <li><a href="menucliente.php">Menu</a></li>
-                
             </ul>
         </nav>
+        <!-- Menú de hamburguesa -->
+        <div class="menu-hamburguesa" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <!-- Contenido del menú desplegable -->
+        <div class="menu-content" id="menuContent">
+            <a href="nosotroscliente.php">Acerca de nosotros</a>
+            <a href="contactanoscliente.php">Contáctanos</a>
+            <a href="catalogocliente.php">Catálogo</a>
+            <a href="menucliente.php">Menu</a>
+        </div>
     </header>
     <main>
         <!-- Contenido principal de la página -->
@@ -58,6 +119,15 @@
               </button>
           </div>
       </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        function toggleMenu() {
+            var menuContent = document.getElementById('menuContent');
+            if (menuContent.style.display === "block") {
+                menuContent.style.display = "none";
+            } else {
+                menuContent.style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>

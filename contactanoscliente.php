@@ -4,25 +4,86 @@
       <meta charset="utf-8"/>
       <title>Contáctanos</title>
       <link rel="stylesheet" type="text/css" href="CSS/csscontactanos.css"/>
-  </head>
+      <style>
+        .menu-hamburguesa {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .menu-hamburguesa div {
+            width: 25px;
+            height: 3px;
+            background-color: black;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        .menu-content {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .menu-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .menu-content a:hover {
+            background-color: #ddd;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .menu-hamburguesa {
+                display: flex;
+            }
+        }
+    </style>
+
+  
+    </head>
   <body>
-    <header>
-      <div class="logo">
-        <a href="index.html">
-          <img src="IMAGEN/logoEmpresa1.png" alt="Logo de la empresa">
+  <header>
+    <div class="logo">
+        <a href="indexcliente.php">
+            <img src="IMAGEN/logoEmpresa1.png" alt="Logo de la empresa">
         </a>
-      </div>
-      <nav>
-          <ul>
-              <li><a href="nosotroscliente.php">Acerca de nosotros</a></li>
-              <li><a href="contactanoscliente.php">Contáctanos</a></li>
-              <li><a href="catalogocliente.php">Catálogo</a></li>
-              <li><a href="menucliente.php">Menu</a></li>
-              
-          </ul>
-      </nav>
-      
-  </header><hr/>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="nosotroscliente.php">Acerca de nosotros</a></li>
+            <li><a href="contactanoscliente.php">Contáctanos</a></li>
+            <li><a href="catalogocliente.php">Catálogo</a></li>
+            <li><a href="menucliente.php">Menu</a></li>
+        </ul>
+    </nav>
+    <div class="menu-hamburguesa" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="menu-content" id="menuContent">
+        <a href="nosotroscliente.php">Acerca de nosotros</a>
+        <a href="contactanoscliente.php">Contáctanos</a>
+        <a href="catalogocliente.php">Catálogo</a>
+        <a href="menucliente.php">Menu</a>
+    </div>
+</header><hr/>
   <main>
     <!-- Contenido principal de la página -->
     <div class="container">
@@ -62,5 +123,15 @@
             </div>
         </div>
 </main>
+<script>
+        function toggleMenu() {
+            var menuContent = document.getElementById('menuContent');
+            if (menuContent.style.display === "block") {
+                menuContent.style.display = "none";
+            } else {
+                menuContent.style.display = "block";
+            }
+        }
+    </script>
   </body>
 </html>

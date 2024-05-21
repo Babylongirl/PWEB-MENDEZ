@@ -144,13 +144,61 @@ if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario_nombre'])) {
         .producto button {
             margin-top: 10px;
         }
+        .menu-hamburguesa {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            z-index: 1000;
+        }
 
+        .menu-hamburguesa div {
+            width: 25px;
+            height: 3px;
+            background-color: black;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        .menu-content {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 20px;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .menu-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .menu-content a:hover {
+            background-color: #ddd;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .menu-hamburguesa {
+                display: flex;
+            }
+        }
+    </style>
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-          <a href="index.html">
+          <a href="indexadmin.php">
             <img src="IMAGEN/logoEmpresa1.png" alt="Logo de la empresa">
           </a>
         </div>
@@ -162,6 +210,18 @@ if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario_nombre'])) {
                 <li><a href="menuadmin.php">Menú</a></li>
             </ul>
         </nav>
+        <div class="menu-hamburguesa" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="menu-content" id="menuContent">
+            <a href="nosotrosadmin.php">Acerca de nosotros</a>
+            <a href="contactanosadmin.php">Contáctanos</a>
+            <a href="catalogoadmin.php">Catálogo</a>
+            <a href="menuadmin.php">Menu</a>
+        </div>
+
     </header>
     <main>
         <!-- Contenido principal de la página -->
@@ -217,6 +277,17 @@ if (!isset($_SESSION['usuario_id']) || !isset($_SESSION['usuario_nombre'])) {
             window.location.href = "empleadoscrud.php";
         });
     </script>
+    <script>
+        function toggleMenu() {
+            var menuContent = document.getElementById('menuContent');
+            if (menuContent.style.display === "block") {
+                menuContent.style.display = "none";
+            } else {
+                menuContent.style.display = "block";
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
 </html>

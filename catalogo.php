@@ -14,7 +14,7 @@
             background-color: #f8f9fa;
             margin: 0;
             padding: 0;
-       
+        }
 
         .producto {
             border: 1px solid #ccc;
@@ -57,12 +57,60 @@
         .btn-secondary {
             background-color: #6c757d;
         }
+
+        .menu-hamburguesa {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .menu-hamburguesa div {
+            width: 25px;
+            height: 3px;
+            background-color: black;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        .menu-content {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 20px;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .menu-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .menu-content a:hover {
+            background-color: #ddd;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .menu-hamburguesa {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="index.html">
+            <a href="index.php">
                 <img src="IMAGEN/logoEmpresa1.png" alt="Logo de la empresa">
             </a>
         </div>
@@ -75,6 +123,18 @@
                 <li><a href="login.php">Login</a></li>
             </ul>
         </nav>
+        <div class="menu-hamburguesa" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="menu-content" id="menuContent">
+            <a href="nosotros.php">Acerca de nosotros</a>
+            <a href="contactanos.php">Contáctanos</a>
+            <a href="catalogo.php">Catálogo</a>
+            <a href="crear cuenta.php">Crear Cuenta</a>
+            <a href="login.php">Login</a>
+        </div>
     </header>
     <main>
         <div class="buscador">
@@ -156,6 +216,15 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
+        function toggleMenu() {
+            var menuContent = document.getElementById('menuContent');
+            if (menuContent.style.display === "block") {
+                menuContent.style.display = "none";
+            } else {
+                menuContent.style.display = "block";
+            }
+        }
+
         function agregarACarrito(event) {
             // Evita el comportamiento predeterminado del formulario (enviarlo)
             event.preventDefault();
