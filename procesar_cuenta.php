@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contrasena = $_POST["contrasena"];
 
     // Encriptar la contraseña
-    $contrasena_encriptada = hash('sha256', $contrasena);
+    $contrasena_encriptada = password_hash($contrasena, PASSWORD_BCRYPT);
 
     // Preparar y ejecutar la consulta para insertar los datos en la tabla usuario
     $stmt = $conn->prepare("INSERT INTO usuario (NombreUsuario, CelularUsuario, CorreoUsuario, ContrasenaUsuario, IdRol) VALUES (?, ?, ?, ?, 1)");
@@ -36,3 +36,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Cerrar la conexión a la base de datos
 $conn->close();
 ?>
+
